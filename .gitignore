@@ -7,3 +7,5 @@ obj/Debug/Testing system.csproj.FileListAbsolute.txt
 obj/Debug/Testing system.csproj.GenerateResource.cache
 obj/Debug/Testing system.exe
 obj/Debug/Testing system.pdb
+*.exe
+obj/Debug/*
