@@ -30,7 +30,6 @@ namespace Testing_system
 		{
 			LogForm logForm = new LogForm();
 			logForm.ShowDialog();
-			//envoeoe	
 		}
 		private void infoButton_Click(object sender, EventArgs e)
 		{
