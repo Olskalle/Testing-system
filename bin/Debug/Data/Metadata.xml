@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+	<section name ="SOLO">
+		<q>
+			<code>101</code>
+			<answer>"..."</answer>
+		</q>
+	</section>
+	<section name ="MULTI">
+		<q>
+			<code>201</code>
+			<answer>"..."</answer>
+		</q>
+	</section>
+	<section name ="OPENED">
+		<q>
+			<code>301</code>
+			<answer>"..."</answer>
+		</q>
+	</section>
+</questions>
