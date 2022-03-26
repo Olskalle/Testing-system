@@ -1,0 +1,14 @@
+D:\CS projects\Testing system\bin\Debug\Testing system.exe.config
+D:\CS projects\Testing system\bin\Debug\Testing system.exe
+D:\CS projects\Testing system\bin\Debug\Testing system.pdb
+D:\CS projects\Testing system\obj\Debug\Testing system.csprojAssemblyReference.cache
+D:\CS projects\Testing system\obj\Debug\Testing_system.Properties.Resources.resources
+D:\CS projects\Testing system\obj\Debug\Testing system.csproj.GenerateResource.cache
+D:\CS projects\Testing system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
+D:\CS projects\Testing system\obj\Debug\Testing system.exe
+D:\CS projects\Testing system\obj\Debug\Testing system.pdb
+D:\CS projects\Testing system\obj\Debug\Testing_system.MenuForm.resources
+D:\CS projects\Testing system\obj\Debug\Testing_system.TestForm.resources
+D:\CS projects\Testing system\obj\Debug\Testing_system.LogForm.resources
+D:\CS projects\Testing system\obj\Debug\Testing_system.InfoForm.resources
+D:\CS projects\Testing system\obj\Debug\Testing_system.LoggingForm.resources
