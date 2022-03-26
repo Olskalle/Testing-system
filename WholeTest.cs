@@ -95,9 +95,13 @@ namespace Testing_system
             while (!counter.Equals(stopCondition))
             {
                 int index = rnd.Next(fullList.Count - 1);
-                generatedList.Add(fullList[index]);
-                counter[(int)fullList[index].Type]++;
-                fullList.RemoveAt(index);
+                if (counter[(int)fullList[index].Type] <
+                    stopCondition[(int)fullList[index].Type])
+                {
+                    generatedList.Add(fullList[index]);
+                    counter[(int)fullList[index].Type]++;
+                    fullList.RemoveAt(index);
+                }
 			}
             pack = generatedList;
 		}
