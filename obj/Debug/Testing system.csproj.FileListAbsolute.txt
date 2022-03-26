@@ -12,3 +12,17 @@ D:\CS projects\Testing system\obj\Debug\Testing_system.TestForm.resources
 D:\CS projects\Testing system\obj\Debug\Testing_system.LogForm.resources
 D:\CS projects\Testing system\obj\Debug\Testing_system.InfoForm.resources
 D:\CS projects\Testing system\obj\Debug\Testing_system.LoggingForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\bin\Debug\Testing system.exe.config
+C:\Users\egorl\Source\Repos\Testing-system\bin\Debug\Testing system.exe
+C:\Users\egorl\Source\Repos\Testing-system\bin\Debug\Testing system.pdb
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.csproj.AssemblyReference.cache
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.InfoForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.LogForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.LoggingForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.TestForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.MenuForm.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing_system.Properties.Resources.resources
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.csproj.GenerateResource.cache
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.exe
+C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.pdb
