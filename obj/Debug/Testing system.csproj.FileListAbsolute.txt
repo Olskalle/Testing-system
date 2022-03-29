@@ -26,3 +26,14 @@ C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.csproj.Gener
 C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
 C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.exe
 C:\Users\egorl\Source\Repos\Testing-system\obj\Debug\Testing system.pdb
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.csprojAssemblyReference.cache
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.InfoForm.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.LogForm.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.LoggingForm.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.TestForm.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.MenuForm.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing_system.Properties.Resources.resources
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.csproj.GenerateResource.cache
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.exe
+C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.pdb

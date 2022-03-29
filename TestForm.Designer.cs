@@ -31,13 +31,13 @@ namespace Testing_system
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.label1 = new System.Windows.Forms.Label();
-			this.endButton = new System.Windows.Forms.Button();
-			this.nextButton = new System.Windows.Forms.Button();
+			this.checkBoxList = new System.Windows.Forms.CheckedListBox();
+			this.ansBox = new System.Windows.Forms.TextBox();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.qLabel = new System.Windows.Forms.Label();
+			this.endButton = new System.Windows.Forms.Button();
+			this.nextButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -57,50 +57,44 @@ namespace Testing_system
 			// 
 			// splitContainer1.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.checkedListBox1);
-			this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+			this.splitContainer1.Panel1.Controls.Add(this.checkBoxList);
+			this.splitContainer1.Panel1.Controls.Add(this.ansBox);
 			this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
 			// 
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.label2);
-			this.splitContainer1.Panel2.Controls.Add(this.label1);
+			this.splitContainer1.Panel2.Controls.Add(this.qLabel);
 			this.splitContainer1.Panel2.Controls.Add(this.endButton);
 			this.splitContainer1.Panel2.Controls.Add(this.nextButton);
 			this.splitContainer1.Size = new System.Drawing.Size(848, 525);
 			this.splitContainer1.SplitterDistance = 433;
 			this.splitContainer1.TabIndex = 0;
 			// 
-			// label1
+			// checkBoxList
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(11, 17);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(146, 25);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Вопрос Х/20";
+			this.checkBoxList.Enabled = false;
+			this.checkBoxList.FormattingEnabled = true;
+			this.checkBoxList.Items.AddRange(new object[] {
+            "Ответ 1",
+            "Ответ 2",
+            "Ответ 3",
+            "Ответ 4"});
+			this.checkBoxList.Location = new System.Drawing.Point(16, 312);
+			this.checkBoxList.Name = "checkBoxList";
+			this.checkBoxList.Size = new System.Drawing.Size(818, 109);
+			this.checkBoxList.TabIndex = 3;
 			// 
-			// endButton
+			// ansBox
 			// 
-			this.endButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.endButton.Location = new System.Drawing.Point(704, 17);
-			this.endButton.Name = "endButton";
-			this.endButton.Size = new System.Drawing.Size(131, 52);
-			this.endButton.TabIndex = 1;
-			this.endButton.Text = "Завершить";
-			this.endButton.UseVisualStyleBackColor = true;
-			// 
-			// nextButton
-			// 
-			this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.nextButton.Location = new System.Drawing.Point(567, 17);
-			this.nextButton.Name = "nextButton";
-			this.nextButton.Size = new System.Drawing.Size(131, 52);
-			this.nextButton.TabIndex = 0;
-			this.nextButton.Text = "Далее";
-			this.nextButton.UseVisualStyleBackColor = true;
+			this.ansBox.Enabled = false;
+			this.ansBox.Location = new System.Drawing.Point(11, 312);
+			this.ansBox.MaxLength = 1024;
+			this.ansBox.Multiline = true;
+			this.ansBox.Name = "ansBox";
+			this.ansBox.Size = new System.Drawing.Size(823, 73);
+			this.ansBox.TabIndex = 2;
+			this.ansBox.Text = "Ответ";
 			// 
 			// pictureBox3
 			// 
@@ -123,28 +117,36 @@ namespace Testing_system
     " вписан ответ,\r\nвопрос автоматически засчитывается как неверный. Назад вернуться" +
     " нельзя.\r\n";
 			// 
-			// checkedListBox1
+			// qLabel
 			// 
-			this.checkedListBox1.FormattingEnabled = true;
-			this.checkedListBox1.Items.AddRange(new object[] {
-            "Ответ 1",
-            "Ответ 2",
-            "Ответ 3",
-            "Ответ 4"});
-			this.checkedListBox1.Location = new System.Drawing.Point(11, 364);
-			this.checkedListBox1.Name = "checkedListBox1";
-			this.checkedListBox1.Size = new System.Drawing.Size(823, 64);
-			this.checkedListBox1.TabIndex = 3;
+			this.qLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.qLabel.AutoSize = true;
+			this.qLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.qLabel.Location = new System.Drawing.Point(11, 17);
+			this.qLabel.Name = "qLabel";
+			this.qLabel.Size = new System.Drawing.Size(146, 25);
+			this.qLabel.TabIndex = 2;
+			this.qLabel.Text = "Вопрос Х/20";
 			// 
-			// textBox1
+			// endButton
 			// 
-			this.textBox1.Location = new System.Drawing.Point(11, 312);
-			this.textBox1.MaxLength = 1024;
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(823, 50);
-			this.textBox1.TabIndex = 2;
-			this.textBox1.Text = "Ответ";
+			this.endButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.endButton.Location = new System.Drawing.Point(704, 17);
+			this.endButton.Name = "endButton";
+			this.endButton.Size = new System.Drawing.Size(131, 52);
+			this.endButton.TabIndex = 1;
+			this.endButton.Text = "Завершить";
+			this.endButton.UseVisualStyleBackColor = true;
+			// 
+			// nextButton
+			// 
+			this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.nextButton.Location = new System.Drawing.Point(567, 17);
+			this.nextButton.Name = "nextButton";
+			this.nextButton.Size = new System.Drawing.Size(131, 52);
+			this.nextButton.TabIndex = 0;
+			this.nextButton.Text = "Далее";
+			this.nextButton.UseVisualStyleBackColor = true;
 			// 
 			// TestForm
 			// 
@@ -173,13 +175,13 @@ namespace Testing_system
 		#endregion
 
 		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label qLabel;
 		private System.Windows.Forms.Button endButton;
 		private System.Windows.Forms.Button nextButton;
 		private System.Windows.Forms.PictureBox pictureBox3;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.CheckedListBox checkedListBox1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.CheckedListBox checkBoxList;
+		private System.Windows.Forms.TextBox ansBox;
 	}
 }
 

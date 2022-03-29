@@ -25,7 +25,9 @@ namespace Testing_system
 		private void continueButton_Click(object sender, EventArgs e)
 		{
 			bool isFilled = false;
-			isFilled = surnameBox.Text.Equals("") || nameBox.Text.Equals("") || groupBox.Text.Equals("");	//пустые ли ячейки
+			isFilled = !surnameBox.Text.Equals("") 
+					&& !nameBox.Text.Equals("") 
+					&& !groupBox.Text.Equals("");	//пустые ли ячейки
 // TODO: Реализовать проверку заполнения всех полей
 			if (isFilled)
 			{
