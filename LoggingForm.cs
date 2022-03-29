@@ -25,7 +25,7 @@ namespace Testing_system
 		private void continueButton_Click(object sender, EventArgs e)
 		{
 			bool isFilled = false;
-			isFilled = nameBox.MaskCompleted & surnameBox.MaskCompleted & groupNameBox.MaskCompleted;
+			isFilled = surnameBox.Text.Equals("") || nameBox.Text.Equals("") || groupBox.Text.Equals("");	//пустые ли ячейки
 // TODO: Реализовать проверку заполнения всех полей
 			if (isFilled)
 			{
@@ -34,9 +34,27 @@ namespace Testing_system
 			else
 			{
 				TestForm testForm = new TestForm();
+//TODO:*сделано* Создать класс для пользователя и создавать объект этого класса с данными из полей
+				DateTime start = DateTime.Now;
+				User newUser = new User(surnameBox.Text, nameBox.Text, groupBox.Text, start);
 				testForm.ShowDialog();
 				this.Close();
 			}
 		}
-	}
+
+        private void surnameBox_TextChanged(object sender, EventArgs e)
+        {
+			
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
