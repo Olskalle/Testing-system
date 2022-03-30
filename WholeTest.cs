@@ -108,15 +108,16 @@ namespace Testing_system
             List<Question> generatedList = new List<Question>();
             fullList = ParseXML();
 
-            //-------Костыль
-            pack = fullList;
-            return;
-            //---Не работает генерация
+            ////-------Костыль
+            //pack = fullList;
+            //return;
+            ////---Не работает генерация
 
             byte[] counter = { 0, 0, 0, 0 };
             byte[] stopCondition = { 0, 10, 5, 5 };
             Random rnd = new Random();
-            while (!counter.Equals(stopCondition))
+            //while (!counter.Equals(stopCondition))
+            while (!Enumerable.SequenceEqual(counter, stopCondition))
             {
                 int index = rnd.Next(fullList.Count);
                 if (counter[(int)fullList[index].Type] <
