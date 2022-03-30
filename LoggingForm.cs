@@ -29,14 +29,13 @@ namespace Testing_system
 					&& !nameBox.Text.Equals("") 
 					&& !groupBox.Text.Equals("");	//пустые ли ячейки
 // TODO: Реализовать проверку заполнения всех полей
-			if (isFilled)
+			if (!isFilled)
 			{
 				MessageBox.Show("Заполните все поля!", "Предупреждение");
 			}
 			else
 			{
 				TestForm testForm = new TestForm();
-//TODO:*сделано* Создать класс для пользователя и создавать объект этого класса с данными из полей
 				DateTime start = DateTime.Now;
 				User newUser = new User(surnameBox.Text, nameBox.Text, groupBox.Text, start);
 				testForm.ShowDialog();

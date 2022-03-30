@@ -65,19 +65,19 @@
 	<section name ="MULTI">
 		<q code="201">
 			<a t="True">"..d."</a>
-			<a t="False">"...f"</a>
-			<a t="False">"...f"</a>
+			<a t="True">"...f"</a>
+			<a t="False">"..df"</a>
 			<a t="False">"..g."</a>
 		</q>
 		<q code="202">
 			<a t="True">"...gw"</a>
-			<a t="False">"...ege"</a>
+			<a t="True">"...ege"</a>
 			<a t="False">"...ge"</a>
 			<a t="False">"..e343."</a>
 		</q>
 		<q code="203">
 			<a t="True">".33334.."</a>
-			<a t="False">"..rgr."</a>
+			<a t="True">"..rgr."</a>
 			<a t="False">"..34435."</a>
 			<a t="False">".222.."</a>
 		</q>
@@ -102,88 +102,88 @@
 		<q code="207">
 			<a t="True">"..wee."</a>
 			<a t="False">"..we."</a>
-			<a t="False">"..."</a>
+			<a t="False">".."</a>
 			<a t="False">"..."</a>
 		</q>
 		<q code="208">
-			<a t="True">"..."</a>
+			<a t="True">"."</a>
+			<a t="False">".."</a>
 			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="False">"...gf"</a>
 		</q>
 		<q code="209">
-			<a t="True">"..."</a>
+			<a t="True">"..sdf"</a>
 			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="False">"sdf.."</a>
+			<a t="False">".sfsf."</a>
 		</q>
 		<q code="210">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"..sf"</a>
+			<a t="False">"..sfsf"</a>
+			<a t="False">"..sfsf."</a>
+			<a t="False">".sfsfsf.."</a>
 		</q>
 	</section>
 	<section name ="OPENED">
 		<q code="301">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">".s.."</a>
+			<a t="False">"...f"</a>
+			<a t="False">"..s."</a>
+			<a t="False">".aa.."</a>
 		</q>
 		<q code="302">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"..qq."</a>
+			<a t="False">"q..."</a>
+			<a t="False">"..q."</a>
+			<a t="False">".q.."</a>
 		</q>
 		<q code="303">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"q..."</a>
+			<a t="False">".q.."</a>
+			<a t="False">"..q."</a>
+			<a t="False">"...q"</a>
 		</q>
 		<q code="304">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"q..."</a>
+			<a t="False">"..q."</a>
+			<a t="False">".q..q"</a>
+			<a t="False">"...q"</a>
 		</q>
 		<q code="305">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"q..."</a>
+			<a t="False">"..q."</a>
+			<a t="False">".q.."</a>
+			<a t="False">"..qq."</a>
 		</q>
 		<q code="306">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">".qq.."</a>
+			<a t="False">"..qq."</a>
+			<a t="False">".qq.."</a>
+			<a t="False">"..qq."</a>
 		</q>
 		<q code="307">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">".qq.."</a>
+			<a t="False">".qqq.."</a>
+			<a t="False">".qq.."</a>
+			<a t="False">"..qqq."</a>
 		</q>
 		<q code="308">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"..qq."</a>
+			<a t="False">"qq..."</a>
+			<a t="False">".qqf.."</a>
+			<a t="False">"..ffq."</a>
 		</q>
 		<q code="309">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">"..qfqf."</a>
+			<a t="False">".qfqf.."</a>
+			<a t="False">".qfqf.."</a>
+			<a t="False">".qfqf.."</a>
 		</q>
 		<q code="310">
-			<a t="True">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
-			<a t="False">"..."</a>
+			<a t="True">".qfqfqf.."</a>
+			<a t="False">".qfqf.."</a>
+			<a t="False">".qfqf.f."</a>
+			<a t="False">".qfqfq.."</a>
 		</q>
 	</section>
 </questions>

@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-//TODO Метод GeneratePack - генерирует набор Question в разброс --проверить
-//TODO private ParseXML -- проверить
+//FIX Метод GeneratePack - генерирует набор Question в разброс --проверить
 //TODO Создать аналогичный класс Journal и читать/записывать данные журнала в XML
 /*
  * Хранение данных осуществляется в Metadata.xml
@@ -34,13 +33,15 @@ using System.Xml;
  *Картинка: допустим, код = 101, тогда картинка = "Data/Img/101.png"
  *Журнал можно организовать подобным планом
  */
-namespace ReadXML
+namespace Testing_system
 {
 	class WholeTest
 	{
 		private List<Question> pack;
+
+        public List<Question> Pack { get { return pack; } }
 		
-		public static List<Question> ParseXML()
+		public List<Question> ParseXML()
 		{
 			List<Question> rawList = new List<Question>();
             XmlDocument xmlData = new XmlDocument();
@@ -82,8 +83,10 @@ namespace ReadXML
                                     bool bt = ((t == Boolean.TrueString)
                                             || (t == Boolean.FalseString))
                                             ? Boolean.Parse(t) : false;
-                                    
-                                    answer.Add(a.InnerText, bt);
+                                    if (!answer.ContainsKey(a.InnerText))
+                                    {
+                                        answer.Add(a.InnerText, bt);
+                                    }
 								}
 							}
                         }
@@ -99,11 +102,16 @@ namespace ReadXML
             return rawList;
 		}
 
-		public static List<Question> GeneratePack()
+		public void GeneratePack()
 		{
             List<Question> fullList = new List<Question>();
             List<Question> generatedList = new List<Question>();
             fullList = ParseXML();
+
+            //-------Костыль
+            pack = fullList;
+            return;
+            //---Не работает генерация
 
             byte[] counter = { 0, 0, 0, 0 };
             byte[] stopCondition = { 0, 10, 5, 5 };
@@ -119,7 +127,7 @@ namespace ReadXML
                     fullList.RemoveAt(index);
                 }
 			}
-            return generatedList;
+            pack = generatedList;
 		}
 	}
 }

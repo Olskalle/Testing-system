@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO: Организовать хранение файлов/ хранение данных
-// TODO: Реализовать методы связки внешних данных с программой
-
 public class Codes
 {
 	public enum Type : byte
@@ -18,7 +15,7 @@ public class Codes
 	}
 }	
 
-namespace ReadXML
+namespace Testing_system
 {
 	class Question
 	{
@@ -34,7 +31,7 @@ namespace ReadXML
 		public Question(uint c, string i, Dictionary<string, bool> a, Codes.Type t)
 		{
 			code = c;
-			image = i;
+			image = $"Data/Img/{i}.png";
 			answer = a;
 			type = t;
 		}

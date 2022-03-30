@@ -29,11 +29,10 @@ namespace Testing_system
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.checkBoxList = new System.Windows.Forms.CheckedListBox();
 			this.ansBox = new System.Windows.Forms.TextBox();
-			this.pictureBox3 = new System.Windows.Forms.PictureBox();
+			this.taskBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.qLabel = new System.Windows.Forms.Label();
 			this.endButton = new System.Windows.Forms.Button();
@@ -42,7 +41,7 @@ namespace Testing_system
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.taskBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// splitContainer1
@@ -59,7 +58,7 @@ namespace Testing_system
 			// 
 			this.splitContainer1.Panel1.Controls.Add(this.checkBoxList);
 			this.splitContainer1.Panel1.Controls.Add(this.ansBox);
-			this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
+			this.splitContainer1.Panel1.Controls.Add(this.taskBox);
 			// 
 			// splitContainer1.Panel2
 			// 
@@ -73,7 +72,6 @@ namespace Testing_system
 			// 
 			// checkBoxList
 			// 
-			this.checkBoxList.Enabled = false;
 			this.checkBoxList.FormattingEnabled = true;
 			this.checkBoxList.Items.AddRange(new object[] {
             "Ответ 1",
@@ -84,10 +82,10 @@ namespace Testing_system
 			this.checkBoxList.Name = "checkBoxList";
 			this.checkBoxList.Size = new System.Drawing.Size(818, 109);
 			this.checkBoxList.TabIndex = 3;
+			this.checkBoxList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBoxList_ItemCheck);
 			// 
 			// ansBox
 			// 
-			this.ansBox.Enabled = false;
 			this.ansBox.Location = new System.Drawing.Point(11, 312);
 			this.ansBox.MaxLength = 1024;
 			this.ansBox.Multiline = true;
@@ -96,14 +94,13 @@ namespace Testing_system
 			this.ansBox.TabIndex = 2;
 			this.ansBox.Text = "Ответ";
 			// 
-			// pictureBox3
+			// taskBox
 			// 
-			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-			this.pictureBox3.Location = new System.Drawing.Point(11, 11);
-			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(824, 286);
-			this.pictureBox3.TabIndex = 1;
-			this.pictureBox3.TabStop = false;
+			this.taskBox.Location = new System.Drawing.Point(11, 11);
+			this.taskBox.Name = "taskBox";
+			this.taskBox.Size = new System.Drawing.Size(824, 286);
+			this.taskBox.TabIndex = 1;
+			this.taskBox.TabStop = false;
 			// 
 			// label2
 			// 
@@ -127,6 +124,7 @@ namespace Testing_system
 			this.qLabel.Size = new System.Drawing.Size(146, 25);
 			this.qLabel.TabIndex = 2;
 			this.qLabel.Text = "Вопрос Х/20";
+			this.qLabel.TextChanged += new System.EventHandler(this.qLabel_TextChanged);
 			// 
 			// endButton
 			// 
@@ -137,6 +135,7 @@ namespace Testing_system
 			this.endButton.TabIndex = 1;
 			this.endButton.Text = "Завершить";
 			this.endButton.UseVisualStyleBackColor = true;
+			this.endButton.Click += new System.EventHandler(this.endButton_Click);
 			// 
 			// nextButton
 			// 
@@ -147,6 +146,7 @@ namespace Testing_system
 			this.nextButton.TabIndex = 0;
 			this.nextButton.Text = "Далее";
 			this.nextButton.UseVisualStyleBackColor = true;
+			this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
 			// 
 			// TestForm
 			// 
@@ -167,7 +167,7 @@ namespace Testing_system
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.taskBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -178,7 +178,7 @@ namespace Testing_system
 		private System.Windows.Forms.Label qLabel;
 		private System.Windows.Forms.Button endButton;
 		private System.Windows.Forms.Button nextButton;
-		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.PictureBox taskBox;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.CheckedListBox checkBoxList;
 		private System.Windows.Forms.TextBox ansBox;
