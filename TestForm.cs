@@ -49,11 +49,20 @@ namespace Testing_system
 			}
 		}
 
-		private void RefreshAnswers()
+		private void RefreshAnswers(Codes.Type type)
 		{
-			for (int i = 0; i < checkBoxList.Items.Count; i++)
+			if (type == Codes.Type.SOLO || type == Codes.Type.MULTI)
 			{
-				//checkBoxList.Items[i] = test.Pack[i].Answer;
+				for (int i = 0; i < checkBoxList.Items.Count; i++)
+				{
+					checkBoxList.Items[i] = test.Pack[qNumber]
+						.Answer.ElementAtOrDefault(i).Key ?? "";
+					checkBoxList.SetItemChecked(i, false);
+				}
+			}
+			else if (type == Codes.Type.OPENED)
+			{
+				ansBox.Text = "";
 			}
 		}
 
@@ -74,6 +83,7 @@ namespace Testing_system
 			 */
 			taskBox.Load(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
+			RefreshAnswers(test.Pack[qNumber].Type);
 		}
 
 		private void TestForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -95,6 +105,7 @@ namespace Testing_system
 				taskBox.Load(test.Pack[qNumber].Image);
 				SetPanel(test.Pack[qNumber].Type);
 				//TODO Обработка ответов: запись, сравнение
+				RefreshAnswers(test.Pack[qNumber].Type);
 			}
 			else
 			{		//Окончание теста, попытка нажатия кнопки далее при достижении конца теста

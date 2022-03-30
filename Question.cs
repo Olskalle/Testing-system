@@ -27,6 +27,8 @@ namespace Testing_system
 		public uint Code { get { return code; } }
 		public string Image { get { return image; } }
 		public Codes.Type Type { get { return type; } }
+		public Dictionary<string, bool> Answer
+		{ get { return answer; } }
 
 		public Question(uint c, string i, Dictionary<string, bool> a, Codes.Type t)
 		{
