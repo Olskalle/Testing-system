@@ -18,20 +18,20 @@ public class Codes
 	}
 }	
 
-namespace Testing_system
+namespace ReadXML
 {
 	class Question
 	{
 		private uint code;
 		private Codes.Type type;
 		private string image;
-		private List<string> answer;
+		private Dictionary<string, bool> answer;
 
 		public uint Code { get { return code; } }
 		public string Image { get { return image; } }
 		public Codes.Type Type { get { return type; } }
 
-		public Question(uint c, string i, List<string> a, Codes.Type t)
+		public Question(uint c, string i, Dictionary<string, bool> a, Codes.Type t)
 		{
 			code = c;
 			image = i;
@@ -39,5 +39,14 @@ namespace Testing_system
 			type = t;
 		}
 
+		public override string ToString()
+		{
+			string output = "\n";
+			foreach (string a in answer.Keys)
+			{
+				output += $"{a}: {answer[a]}\n";
+			}
+			return $"{Type}: {Code}" + output;
+		}
 	}
 }

@@ -34,13 +34,13 @@ using System.Xml;
  *Картинка: допустим, код = 101, тогда картинка = "Data/Img/101.png"
  *Журнал можно организовать подобным планом
  */
-namespace Testing_system
+namespace ReadXML
 {
 	class WholeTest
 	{
 		private List<Question> pack;
 		
-		public List<Question> ParseXML()
+		public static List<Question> ParseXML()
 		{
 			List<Question> rawList = new List<Question>();
             XmlDocument xmlData = new XmlDocument();
@@ -65,17 +65,33 @@ namespace Testing_system
 
                     foreach (XmlElement q in node.ChildNodes)
                     {
-                        string img = q["code"].InnerText;
-                        uint code = uint.Parse(img);
-                        string answer = q["answer"].InnerText;
-                        //TODO Читать ответы в List<string> из xml
+                        string img = "";
+                        uint code = 0;
+                        Dictionary<string, bool> answer = new Dictionary<string, bool>();
+                        try
+                        {
 
-                        //------------Костыль----------------------
-                        List<string> _answer = new List<string>();
-                        _answer.Add(answer);
-                        //После исправления в конструктор должен передаваться answer
-                        //-----------------------------------------
-                        Question tmp = new Question(code, img, _answer, type);
+                            string attr = q.Attributes.GetNamedItem("code").Value ?? "0";
+                            img = attr;
+                            code = uint.Parse(attr);
+                            foreach (XmlElement a in q.ChildNodes)
+							{
+                                if (a.Name == "a")
+								{
+                                    string t = a.Attributes.GetNamedItem("t").Value ?? "False";
+                                    bool bt = ((t == Boolean.TrueString)
+                                            || (t == Boolean.FalseString))
+                                            ? Boolean.Parse(t) : false;
+                                    
+                                    answer.Add(a.InnerText, bt);
+								}
+							}
+                        }
+						catch
+						{
+							continue;
+						}
+						Question tmp = new Question(code, img, answer, type);
                         rawList.Add(tmp);
                     }
                 }
@@ -83,7 +99,7 @@ namespace Testing_system
             return rawList;
 		}
 
-		public void GeneratePack()
+		public static List<Question> GeneratePack()
 		{
             List<Question> fullList = new List<Question>();
             List<Question> generatedList = new List<Question>();
@@ -94,7 +110,7 @@ namespace Testing_system
             Random rnd = new Random();
             while (!counter.Equals(stopCondition))
             {
-                int index = rnd.Next(fullList.Count - 1);
+                int index = rnd.Next(fullList.Count);
                 if (counter[(int)fullList[index].Type] <
                     stopCondition[(int)fullList[index].Type])
                 {
@@ -103,7 +119,7 @@ namespace Testing_system
                     fullList.RemoveAt(index);
                 }
 			}
-            pack = generatedList;
+            return generatedList;
 		}
 	}
 }

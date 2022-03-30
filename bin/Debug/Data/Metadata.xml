@@ -1,21 +1,189 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <questions>
 	<section name ="SOLO">
-		<q>
-			<code>101</code>
-			<answer>"..."</answer>
+		<q code="101">
+			<a t="True">"1"</a>
+			<a t="False">"2"</a>
+			<a t="False">"3"</a>
+			<a t="False">"4"</a>
+		</q>
+		<q code="102">
+			<a t="True">"5"</a>
+			<a t="False">"6"</a>
+			<a t="False">"8"</a>
+			<a t="False">"8"</a>
+		</q>
+		<q code="103">
+			<a t="True">"9"</a>
+			<a t="False">"10"</a>
+			<a t="False">"11"</a>
+			<a t="False">"12"</a>
+		</q>
+		<q code="104">
+			<a t="True">"13"</a>
+			<a t="False">"14"</a>
+			<a t="False">"15"</a>
+			<a t="False">"16"</a>
+		</q>
+		<q code="105">
+			<a t="True">"17"</a>
+			<a t="False">"18"</a>
+			<a t="False">"19"</a>
+			<a t="False">"20"</a>
+		</q>
+		<q code="106">
+			<a t="True">"21"</a>
+			<a t="False">"...22"</a>
+			<a t="False">"...23"</a>
+			<a t="False">"...24"</a>
+		</q>
+		<q code="107">
+			<a t="True">"...25"</a>
+			<a t="False">"...26"</a>
+			<a t="False">"...27"</a>
+			<a t="False">"...28"</a>
+		</q>
+		<q code="108">
+			<a t="True">"...29"</a>
+			<a t="False">"...30"</a>
+			<a t="False">"...31"</a>
+			<a t="False">"...32"</a>
+		</q>
+		<q code="109">
+			<a t="True">"...33"</a>
+			<a t="False">"...34"</a>
+			<a t="False">"...35"</a>
+			<a t="False">"...36"</a>
+		</q>
+		<q code="110">
+			<a t="True">"...37"</a>
+			<a t="False">"...38"</a>
+			<a t="False">"...39"</a>
+			<a t="False">"...40"</a>
 		</q>
 	</section>
 	<section name ="MULTI">
-		<q>
-			<code>201</code>
-			<answer>"..."</answer>
+		<q code="201">
+			<a t="True">"..d."</a>
+			<a t="False">"...f"</a>
+			<a t="False">"...f"</a>
+			<a t="False">"..g."</a>
+		</q>
+		<q code="202">
+			<a t="True">"...gw"</a>
+			<a t="False">"...ege"</a>
+			<a t="False">"...ge"</a>
+			<a t="False">"..e343."</a>
+		</q>
+		<q code="203">
+			<a t="True">".33334.."</a>
+			<a t="False">"..rgr."</a>
+			<a t="False">"..34435."</a>
+			<a t="False">".222.."</a>
+		</q>
+		<q code="204">
+			<a t="True">".23r.."</a>
+			<a t="False">"...tg"</a>
+			<a t="False">"..tg3."</a>
+			<a t="False">".22234g.."</a>
+		</q>
+		<q code="205">
+			<a t="True">"..3.erg"</a>
+			<a t="False">"..34ghh."</a>
+			<a t="False">"..14."</a>
+			<a t="False">"..12,,."</a>
+		</q>
+		<q code="206">
+			<a t="True">"..[pw."</a>
+			<a t="False">"we..."</a>
+			<a t="False">"..ee."</a>
+			<a t="False">".433.."</a>
+		</q>
+		<q code="207">
+			<a t="True">"..wee."</a>
+			<a t="False">"..we."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="208">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="209">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="210">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
 		</q>
 	</section>
 	<section name ="OPENED">
-		<q>
-			<code>301</code>
-			<answer>"..."</answer>
+		<q code="301">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="302">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="303">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="304">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="305">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="306">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="307">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="308">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="309">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+		</q>
+		<q code="310">
+			<a t="True">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
+			<a t="False">"..."</a>
 		</q>
 	</section>
 </questions>
