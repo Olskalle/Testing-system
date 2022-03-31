@@ -25,6 +25,14 @@ namespace Testing_system
         public DateTime Finish
         { get { return finish; }
           set { finish = value; } } // а эти поля заполняются потом, после прохождения теста
+
+        public TimeSpan Elapsed
+        { 
+            get
+            {
+                return (finish == null)?(TimeSpan.Zero):(start - finish);
+            }
+        }
         public int Score
         { get { return score; }
           set { score = value; } }

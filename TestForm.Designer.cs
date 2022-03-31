@@ -101,6 +101,7 @@ namespace Testing_system
 			this.taskBox.Location = new System.Drawing.Point(11, 11);
 			this.taskBox.Name = "taskBox";
 			this.taskBox.Size = new System.Drawing.Size(824, 286);
+			this.taskBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.taskBox.TabIndex = 1;
 			this.taskBox.TabStop = false;
 			// 

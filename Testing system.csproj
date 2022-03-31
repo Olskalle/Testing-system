@@ -52,6 +52,7 @@
     <Compile Include="InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Journal.cs" />
     <Compile Include="LogForm.cs">
       <SubType>Form</SubType>
     </Compile>

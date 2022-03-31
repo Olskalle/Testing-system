@@ -25,7 +25,6 @@ namespace Testing_system
 		{
 			enableBlocking = res;
 		}
-		//TODO Смена панелей
 		private void SetPanel(Codes.Type type)
 		{
 			switch (type)
@@ -48,7 +47,6 @@ namespace Testing_system
 				default: break;
 			}
 		}
-
 		private void RefreshAnswers(Codes.Type type)
 		{
 			if (type == Codes.Type.SOLO || type == Codes.Type.MULTI)
@@ -65,7 +63,15 @@ namespace Testing_system
 				ansBox.Text = "";
 			}
 		}
-
+		private void EndTestEvent()
+		{
+			DialogResult dialogResult =
+				MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
+			if (dialogResult == DialogResult.Yes)
+			{
+				this.Close();
+			}
+		}
 		private void TestForm_Load(object sender, EventArgs e)
 		{
 
@@ -99,23 +105,14 @@ namespace Testing_system
 				RefreshAnswers(test.Pack[qNumber].Type);
 			}
 			else
-			{		//Окончание теста, попытка нажатия кнопки далее при достижении конца теста
-				DialogResult dialogResult = 
-					MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
-				if (dialogResult == DialogResult.Yes)
-				{
-					this.Close();
-				}
+			{       //Окончание теста, попытка нажатия кнопки далее при достижении конца теста
+				EndTestEvent();
 			}
 		}
 
 		private void endButton_Click(object sender, EventArgs e)
 		{
-			DialogResult dialogResult = MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
-			if (dialogResult == DialogResult.Yes)
-			{
-				this.Close();
-			}
+			EndTestEvent();
 		}
 
 		private void qLabel_TextChanged(object sender, EventArgs e)
