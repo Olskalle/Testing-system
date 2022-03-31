@@ -72,6 +72,7 @@ namespace Testing_system
 			// 
 			// checkBoxList
 			// 
+			this.checkBoxList.CheckOnClick = true;
 			this.checkBoxList.FormattingEnabled = true;
 			this.checkBoxList.Items.AddRange(new object[] {
             "Ответ 1",
@@ -86,16 +87,17 @@ namespace Testing_system
 			// 
 			// ansBox
 			// 
-			this.ansBox.Location = new System.Drawing.Point(11, 312);
+			this.ansBox.Location = new System.Drawing.Point(16, 312);
 			this.ansBox.MaxLength = 1024;
 			this.ansBox.Multiline = true;
 			this.ansBox.Name = "ansBox";
-			this.ansBox.Size = new System.Drawing.Size(823, 73);
+			this.ansBox.Size = new System.Drawing.Size(818, 73);
 			this.ansBox.TabIndex = 2;
 			this.ansBox.Text = "Ответ";
 			// 
 			// taskBox
 			// 
+			this.taskBox.BackColor = System.Drawing.Color.White;
 			this.taskBox.Location = new System.Drawing.Point(11, 11);
 			this.taskBox.Name = "taskBox";
 			this.taskBox.Size = new System.Drawing.Size(824, 286);

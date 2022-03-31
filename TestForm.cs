@@ -68,19 +68,10 @@ namespace Testing_system
 
 		private void TestForm_Load(object sender, EventArgs e)
 		{
+
 			test.GeneratePack();
-			/*
-			 *	В зависимости от типа вопроса гененируем интерфейс \
-			 *	OPENED --> Показываем панель с полем ввода			|---SetPanel()
-			 *	SOLO, MULTI --> Показываем панель с чекбоксами	   /
-			 *	
-			 *	В случае с SOLO нужна функция DeselectOther() <--- TogglePanelBlocking()
-			 *	запрещающая выделять больше одного чекбокса
-			 *	
-			 *	Варианты:
-			 *			* динамически создаем чекбоксы в панели и заполняем их
-			 *			* берем 4(условно) постоянных чекбокса и меняем им атрибуты <----Выбрал этот
-			 */
+
+			qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
 			taskBox.Load(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
 			RefreshAnswers(test.Pack[qNumber].Type);
