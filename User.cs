@@ -12,9 +12,10 @@ namespace Testing_system
         private string name;
         private string group;
         private int score;
+        private int mark;
         private DateTime start;
         private DateTime finish;
-        public string Surname { get { return surname; } }     //set нету потому что мы только единожды создаём пользователя
+        public string Surname { get { return surname; } }
         public string Name { get { return name; } }
         public string Group  { get { return group; } }
         public DateTime Start { get { return start; }  }
@@ -24,15 +25,9 @@ namespace Testing_system
                      : (score < 32) ? 4 : 5; } }
         public DateTime Finish
         { get { return finish; }
-          set { finish = value; } } // а эти поля заполняются потом, после прохождения теста
-
+          set { finish = value; } }
         public TimeSpan Elapsed
-        { 
-            get
-            {
-                return (finish == null)?(TimeSpan.Zero):(start - finish);
-            }
-        }
+        { get { return (finish == null)?(TimeSpan.Zero):(finish - start); } }
         public int Score
         { get { return score; }
           set { score = value; } }
@@ -43,6 +38,37 @@ namespace Testing_system
             this.name = name;
             this.group = group;
             this.start = start;
+        }
+        public User(string surname, string name, string group, DateTime start, TimeSpan elapsed)
+        {
+            this.surname = surname;
+            this.name = name;
+            this.group = group;
+            this.start = start;
+            this.finish = start;
+            this.finish.Add(elapsed);
+        }
+        public User(string surname, string name, string group, string start)
+        {
+            this.surname = surname;
+            this.name = name;
+            this.group = group;
+            this.start = DateTime.MinValue;
+            DateTime.TryParse(start, out this.start);
+        }
+        public User(string surname, string name, string group, string start, string elapsed)
+        {
+            this.surname = surname;
+            this.name = name;
+            this.group = group;
+            this.start = DateTime.MinValue;
+            DateTime.TryParse(start, out this.start);
+            TimeSpan tmp;
+            if (TimeSpan.TryParse(elapsed, out tmp))
+			{
+                this.finish = this.start;
+                finish.Add(tmp);
+			}
         }
     }
 }

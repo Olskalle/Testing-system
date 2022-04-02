@@ -6,6 +6,20 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
+
+/*
+ * <Journal>
+ *		<data>
+ *			<group></group>
+ *			<name></name>
+ *			<surname></surname>
+ *			<score></score>
+ *			<mark></mark>
+ *			<date></date>
+ *			<time></time>
+ *		</data>
+ * </Journal>
+ */
 namespace Testing_system
 {
 	class Journal
@@ -14,7 +28,7 @@ namespace Testing_system
 		private User currentUser;
 		private string path = "Data/Journal.xml"; 
 
-		public User CurUser
+		public User CurrentUser
 		{
 			get { return currentUser; }
 			set { currentUser = value; }
@@ -27,35 +41,51 @@ namespace Testing_system
 		public List<User> ParseXML()
 		{
 			List<User> list = new List<User>();
-			//xmlData.Load("Data/Metadata.xml");
+			XmlDocument xmlData = new XmlDocument();
+			xmlData.Load(path);
+			XmlElement root = xmlData.DocumentElement;
+			if (root != null)
+			{
+				foreach (XmlElement data in root)
+				{
+					foreach (XmlElement a in data.ChildNodes)
+					{
+						try
+						{
+							string group = a.SelectSingleNode("group").InnerText;
+							string name = a.SelectSingleNode("name").InnerText;
+							string surname = a.SelectSingleNode("surname").InnerText;
+							int score = 0;
+							int.TryParse(a.SelectSingleNode("score").InnerText, out score);
+							int mark = 0;
+							int.TryParse(a.SelectSingleNode("mark").InnerText, out mark);
+							string date = a.SelectSingleNode("date").InnerText;
+							string time = a.SelectSingleNode("time").InnerText;
+							User tmp = new User(surname, name, group, date, time);
+							list.Add(tmp);
+						}
+						catch
+						{
+							continue;
+						}
+					}
+				}
+			}
 			return list;
 		}
 
 		public void XmlAdd(User user)
 		{
-			/*
-			 * <Journal>
-			 *		<data>
-			 *			<group></group>
-			 *			<name></name>
-			 *			<surname></surname>
-			 *			<score></score>
-			 *			<mark></mark>
-			 *			<date></date>
-			 *			<time></time>
-			 *		</data>
-			 * </Journal>
-			 */
 			XDocument doc = XDocument.Load(path);
-			XElement school = doc.Element("Journal");
-			school.Add(new XElement("data",
-					   new XElement("group", CurUser.Group),
-					   new XElement("name", CurUser.Name),
-					   new XElement("surname", CurUser.Surname),
-					   new XElement("score", CurUser.Score),
-					   new XElement("mark", CurUser.Mark),
-					   new XElement("date", CurUser.Start.ToString("dd:mm:yyyy")),
-					   new XElement("time", CurUser.Elapsed)));
+			XElement journal = doc.Element("Journal");
+			journal.Add(new XElement("data",
+					   new XElement("group", CurrentUser.Group),
+					   new XElement("name", CurrentUser.Name),
+					   new XElement("surname", CurrentUser.Surname),
+					   new XElement("score", CurrentUser.Score),
+					   new XElement("mark", CurrentUser.Mark),
+					   new XElement("date", CurrentUser.Start.ToString("dd.mm.yyyy HH:mm")),
+					   new XElement("time", CurrentUser.Elapsed.ToString("hh:mm:ss"))));
 			doc.Save(path);
 		}
 	}
