@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Testing_system
 {
@@ -78,7 +79,15 @@ namespace Testing_system
 			test.GeneratePack();
 
 			qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
-			taskBox.Load(test.Pack[qNumber].Image);
+			if (File.Exists(test.Pack[qNumber].Image))
+			{
+				taskBox.Load(test.Pack[qNumber].Image);
+			}
+			else
+			{
+				//taskBox.Load($"Resourses/error.bmp");
+			}
+			//taskBox.Load(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
 			RefreshAnswers(test.Pack[qNumber].Type);
 		}
@@ -98,8 +107,15 @@ namespace Testing_system
 			{
 				qNumber++;
 				qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
-
-				taskBox.Load(test.Pack[qNumber].Image);
+				if (File.Exists(test.Pack[qNumber].Image))
+				{
+					taskBox.Load(test.Pack[qNumber].Image);
+				}
+				else
+				{
+					//taskBox.Load($"Resourses/error.bmp");
+				}
+				//taskBox.Load(test.Pack[qNumber].Image);
 				SetPanel(test.Pack[qNumber].Type);
 				//TODO Обработка ответов: запись, сравнение
 				RefreshAnswers(test.Pack[qNumber].Type);
