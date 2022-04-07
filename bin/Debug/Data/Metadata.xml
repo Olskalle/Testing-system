@@ -187,63 +187,46 @@
 	<section name ="OPENED">
 		<q code="301">
 			<a t="True">формула ньютона-лейбница</a>
-			<a t="False">"...f"</a>
-			<a t="False">"..s."</a>
-			<a t="False">".aa.."</a>
+			<a t="True">ньютона-лейбница</a>
+			<a t="True">ньютон-лейбниц</a>
 		</q>
 		<q code="302">
 			<a t="True">8/3</a>
-			<a t="False">"q..."</a>
-			<a t="False">"..q."</a>
-			<a t="False">".q.."</a>
+			<a t="True">2 2/3</a>
+			<a t="True">2,6</a>
 		</q>
 		<q code="303">
 			<a t="True">36</a>
-			<a t="False">".q.."</a>
-			<a t="False">"..q."</a>
-			<a t="False">"...q"</a>
+			<a t="False">тридцать шесть</a>
+		
 		</q>
 		<q code="304">
 			<a t="True">78,75</a>
-			<a t="False">"..q."</a>
-			<a t="False">".q..q"</a>
-			<a t="False">"...q"</a>
+			<a t="True">78 3/4</a>
+			<a t="True">315/4</a>
 		</q>
 		<q code="305">
 			<a t="True">-272</a>
-			<a t="False">"..q."</a>
-			<a t="False">".q.."</a>
-			<a t="False">"..qq."</a>
 		</q>
 		<q code="306">
 			<a t="True">-2</a>
-			<a t="False">"..qq."</a>
-			<a t="False">".qq.."</a>
-			<a t="False">"..qq."</a>
+
 		</q>
 		<q code="307">
 			<a t="True">подынтегральная</a>
-			<a t="False">".qqq.."</a>
-			<a t="False">".qq.."</a>
-			<a t="False">"..qqq."</a>
+			<a t="True">подинтегральная</a>
 		</q>
 		<q code="308">
 			<a t="True">пределом</a>
-			<a t="False">"qq..."</a>
-			<a t="False">".qqf.."</a>
-			<a t="False">"..ffq."</a>
+			<a t="True">предел</a>
 		</q>
 		<q code="309">
 			<a t="True">приращение</a>
-			<a t="False">".qfqf.."</a>
-			<a t="False">".qfqf.."</a>
-			<a t="False">".qfqf.."</a>
+			<a t="True">приращения</a>
 		</q>
 		<q code="310">
 			<a t="True">производная</a>
-			<a t="False">".qfqf.."</a>
-			<a t="False">".qfqf.f."</a>
-			<a t="False">".qfqfq.."</a>
+			<a t="True">производной</a>
 		</q>
 	</section>
 </questions>

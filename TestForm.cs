@@ -10,6 +10,7 @@ namespace Testing_system
 {
 	public partial class TestForm : Form
 	{
+		public User currentUser;
 		WholeTest test = new WholeTest();
 		byte qNumber = 0;   // Question number
 		byte currentScore = 0;
@@ -159,14 +160,17 @@ namespace Testing_system
 			RefreshAnswers(test.Pack[qNumber].Type);
 			//CompareChecked();
 		}
-
+		
 		private void TestForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			//TODO Сформировать объект User
-
-			//TODO Добавить запись в журнал
-
-			//TODO Вывести информацию о тесте
+			//Запись времени прохождения, полученных баллов и добавление информации пользователя в файл с последующим выводом результатов тестирования
+			currentUser.Finish = DateTime.Now; 
+			currentUser.Score = currentScore; 										
+			Journal addJournal = new Journal();
+			addJournal.XmlAdd(currentUser); 
+			string elapsed = currentUser.Elapsed.ToString().Trim();
+			elapsed = elapsed.Substring(0, elapsed.LastIndexOf('.'));
+			MessageBox.Show("Вы прошли тест\nВаш результат:\t" + currentUser.Score + "\nВаша оценка:\t" + currentUser.Mark + "\nВремя прохождения:\t" + elapsed,"Поздравляем");
 		}
 
 		private void nextButton_Click(object sender, EventArgs e)
@@ -228,6 +232,7 @@ namespace Testing_system
 
 		private void TestForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			//После прохождения теста или при нажатии на кнопку "Завершить"
 			DialogResult dialogResult =
 				MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
 			e.Cancel = (dialogResult == DialogResult.No);
