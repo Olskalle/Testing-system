@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Testing_system
 {
-    class User
+    public class User
     {
+        //Класс пользователя, который проходит тест
         private string surname;
         private string name;
         private string group;
@@ -20,6 +21,7 @@ namespace Testing_system
         public string Name { get { return name; } }
         public string Group  { get { return group; } }
         public DateTime Start { get { return start; }  }
+        //Оценка пользователя по итогам прохождения теста
         public int Mark
         { get { return (score < 16) ? 2 
                      : (score < 24) ? 3 
@@ -29,7 +31,7 @@ namespace Testing_system
           set { finish = value;
               
             } }
-      
+        //Время прохождения теста
         public TimeSpan Elapsed
         { get { return (finish == null) ? (TimeSpan.Zero) : (finish - start); } }
         public int Score

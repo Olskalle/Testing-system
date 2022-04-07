@@ -7,6 +7,8 @@ using System.Xml;
 using System.Xml.Linq;
 
 
+//Структура файла xml
+
 /*
  * <Journal>
  *		<data>
@@ -24,6 +26,7 @@ namespace Testing_system
 {
 	class Journal
 	{
+		//Класс журнала, методы заполнения файла журнала и его чтения с выводом в таблицу
 		private List<User> data;
 		private User currentUser;
 		private string path = $"Data/Journal.xml"; 
@@ -36,10 +39,9 @@ namespace Testing_system
 
 		public List<User> Data
 		{ get { return data; } }
-
-		//TODO Чтение Journal.xml с заполнением списка User
 		public List<User> ParseXML()
 		{
+			//Чтение данных из файла и заполнение таблицы журнала тестирования
 			List<User> list = new List<User>();
 			XmlDocument xmlData = new XmlDocument();
 			xmlData.Load(path);
@@ -48,8 +50,6 @@ namespace Testing_system
 			{
 				foreach (XmlElement data in root)
 				{
-					//foreach (XmlElement a in data.ChildNodes)
-					//{
 					try
 					{
 						string group = data.SelectSingleNode("group").InnerText;
@@ -72,28 +72,38 @@ namespace Testing_system
 						{
 							continue;
 						}
-					//}
 				}
 			}
 			return list;
 		}
-		//TODO исправить отсутствие корня
 		public void XmlAdd(User user)
 		{
-			XDocument doc = XDocument.Load(path);
-			XElement journal = doc.Element("Journal");
-			string elapsed = currentUser.Elapsed.ToString().Trim();
-			elapsed=  elapsed.Substring(0, elapsed.LastIndexOf('.'));
-
-			journal.Add(new XElement("data",
-					   new XElement("group", CurrentUser.Group),
-					   new XElement("name", CurrentUser.Name),
-					   new XElement("surname", CurrentUser.Surname),
-					   new XElement("score", CurrentUser.Score),
-					   new XElement("mark", CurrentUser.Mark),
-					   new XElement("date", CurrentUser.Start.ToString("dd.MM.yyyy HH:mm:ss")),
-					   new XElement("time", elapsed)));
-			doc.Save(path);
+			//Добавление нового прохождения теста в файл
+			try
+			{
+				XDocument doc;
+				try
+				{
+					doc = XDocument.Load(path);
+				}
+				catch (Exception exc)
+				{
+					doc = new XDocument(new XElement("Journal"));
+				}
+				XElement journal = doc.Element("Journal");
+				string elapsed = user.Elapsed.ToString().Trim();
+				elapsed = elapsed.Substring(0, elapsed.LastIndexOf('.'));
+				journal.Add(new XElement("data",
+						   new XElement("group", user.Group),
+						   new XElement("name", user.Name),
+						   new XElement("surname", user.Surname),
+						   new XElement("score", user.Score),
+						   new XElement("mark", user.Mark),
+						   new XElement("date", user.Start.ToString("dd.MM.yyyy HH:mm:ss")),
+						   new XElement("time", elapsed)));
+				doc.Save(path);
+			}
+			catch { }
 		}
 	}
 }
