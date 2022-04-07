@@ -30,13 +30,14 @@ namespace Testing_system
 		private void InitializeComponent()
 		{
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.multiCheckBox = new System.Windows.Forms.CheckedListBox();
 			this.checkBoxList = new System.Windows.Forms.CheckedListBox();
 			this.ansBox = new System.Windows.Forms.TextBox();
-			this.taskBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.qLabel = new System.Windows.Forms.Label();
 			this.endButton = new System.Windows.Forms.Button();
 			this.nextButton = new System.Windows.Forms.Button();
+			this.taskBox = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +57,7 @@ namespace Testing_system
 			// 
 			// splitContainer1.Panel1
 			// 
+			this.splitContainer1.Panel1.Controls.Add(this.multiCheckBox);
 			this.splitContainer1.Panel1.Controls.Add(this.checkBoxList);
 			this.splitContainer1.Panel1.Controls.Add(this.ansBox);
 			this.splitContainer1.Panel1.Controls.Add(this.taskBox);
@@ -66,13 +68,29 @@ namespace Testing_system
 			this.splitContainer1.Panel2.Controls.Add(this.qLabel);
 			this.splitContainer1.Panel2.Controls.Add(this.endButton);
 			this.splitContainer1.Panel2.Controls.Add(this.nextButton);
-			this.splitContainer1.Size = new System.Drawing.Size(848, 525);
-			this.splitContainer1.SplitterDistance = 433;
+			this.splitContainer1.Size = new System.Drawing.Size(848, 504);
+			this.splitContainer1.SplitterDistance = 412;
 			this.splitContainer1.TabIndex = 0;
+			// 
+			// multiCheckBox
+			// 
+			this.multiCheckBox.CheckOnClick = true;
+			this.multiCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.multiCheckBox.FormattingEnabled = true;
+			this.multiCheckBox.Items.AddRange(new object[] {
+            "Ответ 1",
+            "Ответ 2",
+            "Ответ 3",
+            "Ответ 4"});
+			this.multiCheckBox.Location = new System.Drawing.Point(16, 312);
+			this.multiCheckBox.Name = "multiCheckBox";
+			this.multiCheckBox.Size = new System.Drawing.Size(818, 88);
+			this.multiCheckBox.TabIndex = 4;
 			// 
 			// checkBoxList
 			// 
 			this.checkBoxList.CheckOnClick = true;
+			this.checkBoxList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.checkBoxList.FormattingEnabled = true;
 			this.checkBoxList.Items.AddRange(new object[] {
             "Ответ 1",
@@ -81,29 +99,20 @@ namespace Testing_system
             "Ответ 4"});
 			this.checkBoxList.Location = new System.Drawing.Point(16, 312);
 			this.checkBoxList.Name = "checkBoxList";
-			this.checkBoxList.Size = new System.Drawing.Size(818, 109);
+			this.checkBoxList.Size = new System.Drawing.Size(818, 88);
 			this.checkBoxList.TabIndex = 3;
 			this.checkBoxList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBoxList_ItemCheck);
 			// 
 			// ansBox
 			// 
+			this.ansBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.ansBox.Location = new System.Drawing.Point(16, 312);
 			this.ansBox.MaxLength = 1024;
 			this.ansBox.Multiline = true;
 			this.ansBox.Name = "ansBox";
-			this.ansBox.Size = new System.Drawing.Size(818, 73);
+			this.ansBox.Size = new System.Drawing.Size(818, 48);
 			this.ansBox.TabIndex = 2;
 			this.ansBox.Text = "Ответ";
-			// 
-			// taskBox
-			// 
-			this.taskBox.BackColor = System.Drawing.Color.White;
-			this.taskBox.Location = new System.Drawing.Point(11, 11);
-			this.taskBox.Name = "taskBox";
-			this.taskBox.Size = new System.Drawing.Size(824, 286);
-			this.taskBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.taskBox.TabIndex = 1;
-			this.taskBox.TabStop = false;
 			// 
 			// label2
 			// 
@@ -122,12 +131,11 @@ namespace Testing_system
 			this.qLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.qLabel.AutoSize = true;
 			this.qLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.qLabel.Location = new System.Drawing.Point(11, 17);
+			this.qLabel.Location = new System.Drawing.Point(11, 0);
 			this.qLabel.Name = "qLabel";
 			this.qLabel.Size = new System.Drawing.Size(146, 25);
 			this.qLabel.TabIndex = 2;
 			this.qLabel.Text = "Вопрос Х/20";
-			this.qLabel.TextChanged += new System.EventHandler(this.qLabel_TextChanged);
 			// 
 			// endButton
 			// 
@@ -151,17 +159,29 @@ namespace Testing_system
 			this.nextButton.UseVisualStyleBackColor = true;
 			this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
 			// 
+			// taskBox
+			// 
+			this.taskBox.BackColor = System.Drawing.Color.White;
+			this.taskBox.ErrorImage = global::Testing_system.Properties.Resources.Missing_Image;
+			this.taskBox.Location = new System.Drawing.Point(11, 11);
+			this.taskBox.Name = "taskBox";
+			this.taskBox.Size = new System.Drawing.Size(824, 286);
+			this.taskBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.taskBox.TabIndex = 1;
+			this.taskBox.TabStop = false;
+			// 
 			// TestForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(848, 525);
+			this.ClientSize = new System.Drawing.Size(848, 504);
 			this.Controls.Add(this.splitContainer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.Name = "TestForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Тестирование";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TestForm_FormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TestForm_FormClosed);
 			this.Load += new System.EventHandler(this.TestForm_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);
@@ -185,6 +205,7 @@ namespace Testing_system
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.CheckedListBox checkBoxList;
 		private System.Windows.Forms.TextBox ansBox;
+		private System.Windows.Forms.CheckedListBox multiCheckBox;
 	}
 }
 

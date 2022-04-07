@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 namespace Testing_system
 {
@@ -15,47 +13,52 @@ namespace Testing_system
 		WholeTest test = new WholeTest();
 		byte qNumber = 0;   // Question number
 		bool enableBlocking = false;
+		byte currentScore = 0;
 		public TestForm()
 		{
 			InitializeComponent();
 		}
 
-//TODO Блокирование кол-ва выбранных чекбоксов
-		private void TogglePanelBlocking(bool res)
-		{
-			enableBlocking = res;
-		}
 		private void SetPanel(Codes.Type type)
 		{
 			switch (type)
 			{
 				case Codes.Type.SOLO:
 					checkBoxList.Show();
+					multiCheckBox.Hide();
 					ansBox.Hide();
-					TogglePanelBlocking(true);
 					break;
 				case Codes.Type.MULTI:
-					checkBoxList.Show();
+					multiCheckBox.Show();
+					checkBoxList.Hide();
 					ansBox.Hide();
-					TogglePanelBlocking(false);
 					break;
 				case Codes.Type.OPENED:
 					ansBox.Show();
 					checkBoxList.Hide();
-					TogglePanelBlocking(false);
+					multiCheckBox.Hide();
 					break;
 				default: break;
 			}
 		}
 		private void RefreshAnswers(Codes.Type type)
 		{
-			if (type == Codes.Type.SOLO || type == Codes.Type.MULTI)
+			if (type == Codes.Type.SOLO)
 			{
 				for (int i = 0; i < checkBoxList.Items.Count; i++)
 				{
 					checkBoxList.Items[i] = test.Pack[qNumber]
 						.Answer.ElementAtOrDefault(i).Key ?? "";
 					checkBoxList.SetItemChecked(i, false);
+				}
+			}
+			else if (type == Codes.Type.MULTI)
+			{
+				for (int i = 0; i < multiCheckBox.Items.Count; i++)
+				{
+					multiCheckBox.Items[i] = test.Pack[qNumber]
+						.Answer.ElementAtOrDefault(i).Key ?? "";
+					multiCheckBox.SetItemChecked(i, false);
 				}
 			}
 			else if (type == Codes.Type.OPENED)
@@ -65,20 +68,76 @@ namespace Testing_system
 		}
 		private void EndTestEvent()
 		{
-			DialogResult dialogResult =
-				MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
-			if (dialogResult == DialogResult.Yes)
+			this.Close();
+		}
+
+		private void CompareChecked()
+		{
+			List<string> checkedItems = new List<string>();
+
+			switch (test.Pack[qNumber].Type)
 			{
-				this.Close();
+				case Codes.Type.MULTI:
+					foreach (var item in multiCheckBox.CheckedItems)
+					{ checkedItems.Add(item.ToString()); }
+					break;
+				case Codes.Type.SOLO:
+					foreach (var item in checkBoxList.CheckedItems)
+					{ checkedItems.Add(item.ToString()); }
+					break;
+				case Codes.Type.OPENED: break;
+				default: break;
+			}
+			if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
+			{
+				//TODO Поправить стоимость типов заданий
+				currentScore += (byte)test.Pack[qNumber].Type;
+			}
+
+			//------DEBUG------
+			List<string> all = new List<string>();
+			switch (test.Pack[qNumber].Type)
+			{
+				case Codes.Type.MULTI:
+					foreach (var item in multiCheckBox.Items)
+					{ all.Add(item.ToString()); }
+					break;
+				case Codes.Type.SOLO:
+					foreach (var item in checkBoxList.Items)
+					{ all.Add(item.ToString()); }
+					break;
+				case Codes.Type.OPENED: break;
+				default: break;
+			}
+			string allstr = string.Join(",", all);
+			string ch = string.Join(",", checkedItems);
+			string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
+			string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
+			bool res = Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems);
+			Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nChecked {ch}\nAll answers {allans}\nTrue {tr}\nComparison result {res}\n");
+		}
+
+		private void SetImage(string path)
+		{
+			if (File.Exists(path))
+			{
+				taskBox.Load(path);
+			}
+			else
+			{
+				taskBox.Image = Properties.Resources.Missing_Image;
+				taskBox.Refresh();
 			}
 		}
+
 		private void TestForm_Load(object sender, EventArgs e)
 		{
 
 			test.GeneratePack();
 
 			qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
-			taskBox.Load(test.Pack[qNumber].Image);
+			//taskBox.Load(test.Pack[qNumber].Image);
+			SetImage(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
 			RefreshAnswers(test.Pack[qNumber].Type);
 		}
@@ -94,14 +153,20 @@ namespace Testing_system
 
 		private void nextButton_Click(object sender, EventArgs e)
 		{
-			if (qNumber < test.Pack.Count - 1)
+			if (qNumber < test.Pack.Count -	1)
 			{
 				qNumber++;
 				qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
 
-				taskBox.Load(test.Pack[qNumber].Image);
+				//---------------Удалить перед релизом----
+				qLabel.Text += $"\n{currentScore}";
+				//----------------------------------------
+
+				//taskBox.Load(test.Pack[qNumber].Image);
+				SetImage(test.Pack[qNumber].Image);
 				SetPanel(test.Pack[qNumber].Type);
 				//TODO Обработка ответов: запись, сравнение
+				CompareChecked();
 				RefreshAnswers(test.Pack[qNumber].Type);
 			}
 			else
@@ -115,21 +180,20 @@ namespace Testing_system
 			EndTestEvent();
 		}
 
-		private void qLabel_TextChanged(object sender, EventArgs e)
-		{
-			
-		}
-
 		private void checkBoxList_ItemCheck(object sender, ItemCheckEventArgs e)
 		{
-			if (enableBlocking)
+			for (int i = 0; i < checkBoxList.Items.Count; i++)
 			{
-				for (int i = 0; i < checkBoxList.Items.Count; i++)
-				{
-					if (i != e.Index)
-					{ checkBoxList.SetItemChecked(i, false); }
-				}
+				if (i != e.Index)
+				{ checkBoxList.SetItemChecked(i, false); }
 			}
+		}
+
+		private void TestForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			DialogResult dialogResult =
+				MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
+			e.Cancel = (dialogResult == DialogResult.No);
 		}
 	}
 }
