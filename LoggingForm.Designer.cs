@@ -86,6 +86,7 @@ namespace Testing_system
             this.surnameBox.Size = new System.Drawing.Size(282, 22);
             this.surnameBox.TabIndex = 7;
             this.surnameBox.TextChanged += new System.EventHandler(this.surnameBox_TextChanged);
+            this.surnameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LetterOnly_KeyPress);
             // 
             // nameBox
             // 
@@ -94,6 +95,7 @@ namespace Testing_system
             this.nameBox.Size = new System.Drawing.Size(282, 22);
             this.nameBox.TabIndex = 8;
             this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LetterOnly_KeyPress);
             // 
             // groupBox
             // 
@@ -102,6 +104,7 @@ namespace Testing_system
             this.groupBox.Size = new System.Drawing.Size(138, 22);
             this.groupBox.TabIndex = 9;
             this.groupBox.TextChanged += new System.EventHandler(this.groupBox_TextChanged);
+            this.groupBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.groupBox_KeyPress);
             // 
             // LoggingForm
             // 
