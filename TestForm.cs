@@ -12,7 +12,6 @@ namespace Testing_system
 	{
 		WholeTest test = new WholeTest();
 		byte qNumber = 0;   // Question number
-		bool enableBlocking = false;
 		byte currentScore = 0;
 		public TestForm()
 		{
@@ -50,6 +49,7 @@ namespace Testing_system
 					checkBoxList.Items[i] = test.Pack[qNumber]
 						.Answer.ElementAtOrDefault(i).Key ?? "";
 					checkBoxList.SetItemChecked(i, false);
+					checkBoxList.Refresh();
 				}
 			}
 			else if (type == Codes.Type.MULTI)
@@ -59,6 +59,7 @@ namespace Testing_system
 					multiCheckBox.Items[i] = test.Pack[qNumber]
 						.Answer.ElementAtOrDefault(i).Key ?? "";
 					multiCheckBox.SetItemChecked(i, false);
+					multiCheckBox.Refresh();
 				}
 			}
 			else if (type == Codes.Type.OPENED)
@@ -85,13 +86,28 @@ namespace Testing_system
 					foreach (var item in checkBoxList.CheckedItems)
 					{ checkedItems.Add(item.ToString()); }
 					break;
-				case Codes.Type.OPENED: break;
+				case Codes.Type.OPENED: 
+					/*
+					 * В XML с ответами добавить другие возможные распространенные формулировки ответа
+					 * Сравнивать в нижнем регистре
+					 * Тире заменить на пробелы, убрать лишние пробелы
+					 * 
+					 * Ответ правильный, если:
+					 *			Введенная пользователем строка с примененной маской
+					 *			совпадает с одним из вариантов из XML, тоже с маской
+					 */
+					break;
 				default: break;
 			}
 			if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
 			{
 				//TODO Поправить стоимость типов заданий
 				currentScore += (byte)test.Pack[qNumber].Type;
+				/*
+				 *SOLO --> 1
+				 *MULTI --> 2
+				 *OPENED --> 4
+				 */
 			}
 
 			//------DEBUG------
@@ -132,14 +148,16 @@ namespace Testing_system
 
 		private void TestForm_Load(object sender, EventArgs e)
 		{
-
 			test.GeneratePack();
+			//----------DEBUG---------------------
+			//MessageBox.Show($"{string.Join(",", test.Pack[qNumber + 1].TrueAnswers)}");
+			//------------------------------------
 
 			qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
-			//taskBox.Load(test.Pack[qNumber].Image);
 			SetImage(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
 			RefreshAnswers(test.Pack[qNumber].Type);
+			//CompareChecked();
 		}
 
 		private void TestForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -153,21 +171,40 @@ namespace Testing_system
 
 		private void nextButton_Click(object sender, EventArgs e)
 		{
+
 			if (qNumber < test.Pack.Count -	1)
 			{
+				CompareChecked();
 				qNumber++;
+				RefreshAnswers(test.Pack[qNumber].Type);
+				SetImage(test.Pack[qNumber].Image);
+				SetPanel(test.Pack[qNumber].Type);
+
+				//----------DEBUG---------------------
+				//MessageBox.Show($"{string.Join(",", test.Pack[qNumber + 1].TrueAnswers)}");
+				List<string> all = new List<string>();
+				switch (test.Pack[qNumber].Type)
+				{
+					case Codes.Type.MULTI:
+						foreach (var item in multiCheckBox.Items)
+						{ all.Add(item.ToString()); }
+						break;
+					case Codes.Type.SOLO:
+						foreach (var item in checkBoxList.Items)
+						{ all.Add(item.ToString()); }
+						break;
+					case Codes.Type.OPENED: break;
+					default: break;
+				}
+				string allstr = string.Join(",", all);
+				string allans = string.Join(",", test.Pack[qNumber].TrueAnswers);
+				Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nAll answers {allans}\n");
+
 				qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
 
 				//---------------Удалить перед релизом----
-				qLabel.Text += $"\n{currentScore}";
+				qLabel.Text += $"\n{test.Pack[qNumber].Code}";
 				//----------------------------------------
-
-				//taskBox.Load(test.Pack[qNumber].Image);
-				SetImage(test.Pack[qNumber].Image);
-				SetPanel(test.Pack[qNumber].Type);
-				//TODO Обработка ответов: запись, сравнение
-				CompareChecked();
-				RefreshAnswers(test.Pack[qNumber].Type);
 			}
 			else
 			{       //Окончание теста, попытка нажатия кнопки далее при достижении конца теста
