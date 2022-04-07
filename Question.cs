@@ -13,6 +13,14 @@ public class Codes
 		MULTI,		//==2
 		OPENED		//==3
 	}
+
+	public enum Price : byte
+	{
+		UNDEFINED = 0,
+		SOLO = 1,
+		MULTI = 2,
+		OPENED = 4
+	}
 }	
 
 namespace Testing_system

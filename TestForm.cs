@@ -19,6 +19,22 @@ namespace Testing_system
 			InitializeComponent();
 		}
 
+		private string MaskString(string s)
+		{
+			return string.Join(" ",
+						s.ToLower()
+						 .Replace('-', ' ')
+						 .Replace('\\', '/')
+						 .Replace('.', ',')
+						 .Split( new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+		}
+		private List<string> MaskString(List<string> s)
+		{
+			List<string> maskedList = s;
+			maskedList.ForEach(e => e = MaskString(e));
+			return maskedList;
+		}
+
 		private void SetPanel(Codes.Type type)
 		{
 			switch (type)
@@ -68,6 +84,7 @@ namespace Testing_system
 				ansBox.Text = "";
 			}
 		}
+
 		private void EndTestEvent()
 		{
 			this.Close();
@@ -80,14 +97,25 @@ namespace Testing_system
 			switch (test.Pack[qNumber].Type)
 			{
 				case Codes.Type.MULTI:
+
 					foreach (var item in multiCheckBox.CheckedItems)
 					{ checkedItems.Add(item.ToString()); }
+
+					if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
+					{ currentScore += (byte)Codes.Price.MULTI; }
 					break;
 				case Codes.Type.SOLO:
+
 					foreach (var item in checkBoxList.CheckedItems)
 					{ checkedItems.Add(item.ToString()); }
+
+					if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
+					{ currentScore += (byte)Codes.Price.SOLO; }
 					break;
-				case Codes.Type.OPENED: 
+				case Codes.Type.OPENED:
+					string text = MaskString(ansBox.Text);
+					if (MaskString(test.Pack[qNumber].TrueAnswers).Exists(t => t.Equals(text)))
+					{ currentScore += (byte)Codes.Price.OPENED; }
 					/*
 					 * В XML с ответами добавить другие возможные распространенные формулировки ответа
 					 * Сравнивать в нижнем регистре
@@ -100,38 +128,43 @@ namespace Testing_system
 					break;
 				default: break;
 			}
-			if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
-			{
-				//TODO Поправить стоимость типов заданий
-				currentScore += (byte)test.Pack[qNumber].Type;
-				/*
-				 *SOLO --> 1
-				 *MULTI --> 2
-				 *OPENED --> 4
-				 */
-			}
+
 
 			//------DEBUG------
-			List<string> all = new List<string>();
-			switch (test.Pack[qNumber].Type)
+			if (test.Pack[qNumber].Type != Codes.Type.OPENED)
 			{
-				case Codes.Type.MULTI:
-					foreach (var item in multiCheckBox.Items)
-					{ all.Add(item.ToString()); }
-					break;
-				case Codes.Type.SOLO:
-					foreach (var item in checkBoxList.Items)
-					{ all.Add(item.ToString()); }
-					break;
-				case Codes.Type.OPENED: break;
-				default: break;
+				List<string> all = new List<string>();
+				switch (test.Pack[qNumber].Type)
+				{
+					case Codes.Type.MULTI:
+						foreach (var item in multiCheckBox.Items)
+						{ all.Add(item.ToString()); }
+						break;
+					case Codes.Type.SOLO:
+						foreach (var item in checkBoxList.Items)
+						{ all.Add(item.ToString()); }
+						break;
+					case Codes.Type.OPENED: break;
+					default: break;
+				}
+				string allstr = string.Join(",", all);
+				string ch = string.Join(",", checkedItems);
+				string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
+				string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
+				bool res = Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems);
+				Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nChecked {ch}\nAll answers {allans}\nTrue {tr}\nComparison result {res}\n");
 			}
-			string allstr = string.Join(",", all);
-			string ch = string.Join(",", checkedItems);
-			string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
-			string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
-			bool res = Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems);
-			Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nChecked {ch}\nAll answers {allans}\nTrue {tr}\nComparison result {res}\n");
+			else
+			{
+				string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
+				string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
+				string t = MaskString(ansBox.Text);
+				Debug.WriteLine($"--Q{qNumber}---\nAnswer {ansBox.Text}\nAll answers {allans}\nTrue {tr}\n" +
+					$"Comparison result {MaskString(test.Pack[qNumber].TrueAnswers).Exists(r => r.Equals(t))}\n");
+				Debug.WriteLine($"{t}");
+				List<string> bebei = MaskString(test.Pack[qNumber].TrueAnswers);
+				bebei.ForEach(e => Debug.WriteLine($"-{e}, {e.Equals(t)}"));
+			}
 		}
 
 		private void SetImage(string path)
