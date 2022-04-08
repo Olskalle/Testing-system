@@ -33,11 +33,11 @@ namespace Testing_system
 			this.multiCheckBox = new System.Windows.Forms.CheckedListBox();
 			this.checkBoxList = new System.Windows.Forms.CheckedListBox();
 			this.ansBox = new System.Windows.Forms.TextBox();
+			this.taskBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.qLabel = new System.Windows.Forms.Label();
 			this.endButton = new System.Windows.Forms.Button();
 			this.nextButton = new System.Windows.Forms.Button();
-			this.taskBox = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -114,6 +114,17 @@ namespace Testing_system
 			this.ansBox.TabIndex = 2;
 			this.ansBox.Text = "Ответ";
 			// 
+			// taskBox
+			// 
+			this.taskBox.BackColor = System.Drawing.Color.White;
+			this.taskBox.ErrorImage = global::Testing_system.Properties.Resources.Missing_Image;
+			this.taskBox.Location = new System.Drawing.Point(11, 11);
+			this.taskBox.Name = "taskBox";
+			this.taskBox.Size = new System.Drawing.Size(824, 286);
+			this.taskBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.taskBox.TabIndex = 1;
+			this.taskBox.TabStop = false;
+			// 
 			// label2
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -131,7 +142,7 @@ namespace Testing_system
 			this.qLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.qLabel.AutoSize = true;
 			this.qLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.qLabel.Location = new System.Drawing.Point(11, 0);
+			this.qLabel.Location = new System.Drawing.Point(11, 17);
 			this.qLabel.Name = "qLabel";
 			this.qLabel.Size = new System.Drawing.Size(146, 25);
 			this.qLabel.TabIndex = 2;
@@ -158,17 +169,6 @@ namespace Testing_system
 			this.nextButton.Text = "Далее";
 			this.nextButton.UseVisualStyleBackColor = true;
 			this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
-			// 
-			// taskBox
-			// 
-			this.taskBox.BackColor = System.Drawing.Color.White;
-			this.taskBox.ErrorImage = global::Testing_system.Properties.Resources.Missing_Image;
-			this.taskBox.Location = new System.Drawing.Point(11, 11);
-			this.taskBox.Name = "taskBox";
-			this.taskBox.Size = new System.Drawing.Size(824, 286);
-			this.taskBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.taskBox.TabIndex = 1;
-			this.taskBox.TabStop = false;
 			// 
 			// TestForm
 			// 

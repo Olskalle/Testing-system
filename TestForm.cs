@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Testing_system
 {
@@ -19,6 +19,7 @@ namespace Testing_system
 			InitializeComponent();
 		}
 
+		//Применение маски к строковому ответу
 		private string MaskString(string s)
 		{
 			return string.Join(" ",
@@ -35,6 +36,7 @@ namespace Testing_system
 			return maskedList;
 		}
 
+		//Управление панелями ввода ответов
 		private void SetPanel(Codes.Type type)
 		{
 			switch (type)
@@ -57,6 +59,8 @@ namespace Testing_system
 				default: break;
 			}
 		}
+
+		//Обновление вариантов ответа в опредленной панели 
 		private void RefreshAnswers(Codes.Type type)
 		{
 			if (type == Codes.Type.SOLO)
@@ -90,12 +94,32 @@ namespace Testing_system
 			this.Close();
 		}
 
+		//Сравнение ответов с правильными 
 		private void CompareChecked()
 		{
 			List<string> checkedItems = new List<string>();
 
 			switch (test.Pack[qNumber].Type)
 			{
+				/*
+				 * ДЛЯ ВОПРОСОВ С ВАРИАНТАМИ ОТВЕТА:
+				 *		
+				 *	ЕСЛИ
+				 *		все элементы последовательности выбранных ответов
+				 *		совпадают со всеми элементами последовательности
+				 *		правильных ответов
+				 *	ТО
+				 *		ответ верный
+				 *		
+				 * ДЛЯ ВОПРОСОВ С ОТКРЫТЫМ ОТВЕТОМ:
+				 *		
+				 *	ЕСЛИ
+				 *		введенная пользователем строка с примененной маской
+				 *		совпадает с одной из строк верных формулировок ответа
+				 *		с также примененной маской
+				 *	ТО
+				 *		ответ верный
+				 */
 				case Codes.Type.MULTI:
 
 					foreach (var item in multiCheckBox.CheckedItems)
@@ -104,6 +128,7 @@ namespace Testing_system
 					if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
 					{ currentScore += (byte)Codes.Price.MULTI; }
 					break;
+
 				case Codes.Type.SOLO:
 
 					foreach (var item in checkBoxList.CheckedItems)
@@ -112,25 +137,17 @@ namespace Testing_system
 					if (Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems))
 					{ currentScore += (byte)Codes.Price.SOLO; }
 					break;
+
 				case Codes.Type.OPENED:
 					string text = MaskString(ansBox.Text);
 					if (MaskString(test.Pack[qNumber].TrueAnswers).Exists(t => t.Equals(text)))
 					{ currentScore += (byte)Codes.Price.OPENED; }
-					/*
-					 * В XML с ответами добавить другие возможные распространенные формулировки ответа
-					 * Сравнивать в нижнем регистре
-					 * Тире заменить на пробелы, убрать лишние пробелы
-					 * 
-					 * Ответ правильный, если:
-					 *			Введенная пользователем строка с примененной маской
-					 *			совпадает с одним из вариантов из XML, тоже с маской
-					 */
 					break;
+
 				default: break;
 			}
 
-
-			//------DEBUG------
+			#region DebugZone
 			if (test.Pack[qNumber].Type != Codes.Type.OPENED)
 			{
 				List<string> all = new List<string>();
@@ -147,24 +164,25 @@ namespace Testing_system
 					case Codes.Type.OPENED: break;
 					default: break;
 				}
-				string allstr = string.Join(",", all);
-				string ch = string.Join(",", checkedItems);
-				string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
-				string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
-				bool res = Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems);
-				Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nChecked {ch}\nAll answers {allans}\nTrue {tr}\nComparison result {res}\n");
+				Debug.WriteLine($"--Q{qNumber}---\n" +
+								$"All variants {string.Join(",", all)}\n" +
+								$"Checked {string.Join(",", checkedItems)}\n" +
+								$"All answers {string.Join(",", test.Pack[qNumber].Answer.Keys)}\n" +
+								$"True {string.Join(",", test.Pack[qNumber].TrueAnswers)}\n" +
+								$"Comparison result {Enumerable.SequenceEqual(test.Pack[qNumber].TrueAnswers, checkedItems)}\n");
 			}
 			else
 			{
-				string allans = string.Join(",", test.Pack[qNumber].Answer.Keys);
-				string tr = string.Join(",", test.Pack[qNumber].TrueAnswers);
-				string t = MaskString(ansBox.Text);
-				Debug.WriteLine($"--Q{qNumber}---\nAnswer {ansBox.Text}\nAll answers {allans}\nTrue {tr}\n" +
-					$"Comparison result {MaskString(test.Pack[qNumber].TrueAnswers).Exists(r => r.Equals(t))}\n");
-				Debug.WriteLine($"{t}");
+				Debug.WriteLine($"--Q{qNumber}---\n" +
+								$"Answer {ansBox.Text}\n" +
+								$"Masked answer {MaskString(ansBox.Text)}\n" +
+								$"All answers {string.Join(",", test.Pack[qNumber].Answer.Keys)}\n" +
+								$"True {string.Join(",", test.Pack[qNumber].TrueAnswers)}\n" +
+								$"Comparison result {MaskString(test.Pack[qNumber].TrueAnswers).Exists(r => r.Equals(t))}\n");
 				List<string> bebei = MaskString(test.Pack[qNumber].TrueAnswers);
 				bebei.ForEach(e => Debug.WriteLine($"-{e}, {e.Equals(t)}"));
 			}
+			#endregion
 		}
 
 		private void SetImage(string path)
@@ -183,27 +201,29 @@ namespace Testing_system
 		private void TestForm_Load(object sender, EventArgs e)
 		{
 			test.GeneratePack();
-			//----------DEBUG---------------------
-			//MessageBox.Show($"{string.Join(",", test.Pack[qNumber + 1].TrueAnswers)}");
-			//------------------------------------
 
 			qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
 			SetImage(test.Pack[qNumber].Image);
 			SetPanel(test.Pack[qNumber].Type);
 			RefreshAnswers(test.Pack[qNumber].Type);
-			//CompareChecked();
 		}
-		
+
 		private void TestForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			//Запись времени прохождения, полученных баллов и добавление информации пользователя в файл с последующим выводом результатов тестирования
-			currentUser.Finish = DateTime.Now; 
-			currentUser.Score = currentScore; 										
+			//Запись времени прохождения, полученных баллов и добавление информации
+			// пользователя в файл с последующим выводом результатов тестирования
+			currentUser.Finish = DateTime.Now;
+			currentUser.Score = currentScore;
 			Journal addJournal = new Journal();
-			addJournal.XmlAdd(currentUser); 
+			addJournal.XmlAdd(currentUser);
 			string elapsed = currentUser.Elapsed.ToString().Trim();
 			elapsed = elapsed.Substring(0, elapsed.LastIndexOf('.'));
-			MessageBox.Show("Вы прошли тест\nВаш результат:\t" + currentUser.Score + "\nВаша оценка:\t" + currentUser.Mark + "\nВремя прохождения:\t" + elapsed,"Поздравляем");
+
+			MessageBox.Show($"Вы прошли тест\n" +
+							$"Ваш результат:\t{currentUser.Score}\n" +
+							$"Ваша оценка:\t{currentUser.Mark}\n" +
+							$"Время прохождения:\t{elapsed}\n",
+							$"Поздравляем!");
 		}
 
 		private void nextButton_Click(object sender, EventArgs e)
@@ -238,15 +258,10 @@ namespace Testing_system
 				Debug.WriteLine($"--Q{qNumber}---\nAll {allstr}\nAll answers {allans}\n");
 
 				qLabel.Text = $"Вопрос {qNumber + 1}/{test.Pack.Count}";
-
-				//---------------Удалить перед релизом----
-				qLabel.Text += $"\n{test.Pack[qNumber].Code}";
-				//----------------------------------------
 			}
-			else
+			else //Окончание теста, попытка нажатия кнопки далее при достижении конца теста
 			{
 				CompareChecked();
-				//Окончание теста, попытка нажатия кнопки далее при достижении конца теста
 				EndTestEvent();
 			}
 		}
@@ -267,7 +282,7 @@ namespace Testing_system
 
 		private void TestForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			//После прохождения теста или при нажатии на кнопку "Завершить"
+			//Подтверждение закрытия формы пользователем
 			DialogResult dialogResult =
 				MessageBox.Show("Завершить тест?", "Предупреждение", MessageBoxButtons.YesNo);
 			e.Cancel = (dialogResult == DialogResult.No);
