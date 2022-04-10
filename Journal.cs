@@ -93,7 +93,7 @@ namespace Testing_system
 				{
 					doc = XDocument.Load(path);
 				}
-				catch (Exception exc)
+				catch
 				{
 					doc = new XDocument(new XElement("Journal"));
 				}

@@ -59,7 +59,6 @@ namespace Testing_system
 			GetTrueAnswers();
 		}
 
-
 		public override string ToString()
 		{
 			string output = "\n";

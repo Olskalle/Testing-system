@@ -24,7 +24,6 @@ namespace Testing_system
 		{
 			return string.Join(" ",
 						s.ToLower()
-						 .Replace('-', ' ')
 						 .Replace('\\', '/')
 						 .Replace('.', ',')
 						 .Split( new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
@@ -178,9 +177,9 @@ namespace Testing_system
 								$"Masked answer {MaskString(ansBox.Text)}\n" +
 								$"All answers {string.Join(",", test.Pack[qNumber].Answer.Keys)}\n" +
 								$"True {string.Join(",", test.Pack[qNumber].TrueAnswers)}\n" +
-								$"Comparison result {MaskString(test.Pack[qNumber].TrueAnswers).Exists(r => r.Equals(t))}\n");
+								$"Comparison result {MaskString(test.Pack[qNumber].TrueAnswers).Exists(r => r.Equals(MaskString(ansBox.Text)))}\n");
 				List<string> bebei = MaskString(test.Pack[qNumber].TrueAnswers);
-				bebei.ForEach(e => Debug.WriteLine($"-{e}, {e.Equals(t)}"));
+				bebei.ForEach(e => Debug.WriteLine($"-{e}, {e.Equals(MaskString(ansBox.Text))}"));
 			}
 			#endregion
 		}
