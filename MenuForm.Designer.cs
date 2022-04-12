@@ -29,6 +29,7 @@ namespace Testing_system
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
 			this.startTestButton = new System.Windows.Forms.Button();
 			this.logButton = new System.Windows.Forms.Button();
 			this.infoButton = new System.Windows.Forms.Button();
@@ -99,6 +100,7 @@ namespace Testing_system
 			this.Controls.Add(this.logButton);
 			this.Controls.Add(this.startTestButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "MenuForm";
 			this.Padding = new System.Windows.Forms.Padding(3);

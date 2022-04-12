@@ -36,4 +36,13 @@
     <date>12.04.2022 23:23:45</date>
     <time>00:00:07</time>
   </data>
+  <data>
+    <group>ИНИС-22</group>
+    <name>Гаражин</name>
+    <surname>Григорий</surname>
+    <score>0</score>
+    <mark>2</mark>
+    <date>12.04.2022 23:33:31</date>
+    <time>00:00:08</time>
+  </data>
 </Journal>

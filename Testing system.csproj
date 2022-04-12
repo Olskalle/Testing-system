@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3151572_math_mathematics_pi_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -124,6 +127,7 @@
     <None Include="Resources\image048-1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3151572_math_mathematics_pi_icon.ico" />
     <Content Include="Metadata.xml" />
     <Content Include="Resources\Missing_Image.png" />
     <None Include="Missing_Image.png" />
