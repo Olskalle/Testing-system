@@ -37,3 +37,17 @@ C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.csproj.Ge
 C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
 C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.exe
 C:\Users\USER\Documents\GitHub\Testing-system\obj\Debug\Testing system.pdb
+D:\GitHub\Testing-system\bin\Debug\Testing system.exe.config
+D:\GitHub\Testing-system\bin\Debug\Testing system.exe
+D:\GitHub\Testing-system\bin\Debug\Testing system.pdb
+D:\GitHub\Testing-system\obj\Debug\Testing system.csprojAssemblyReference.cache
+D:\GitHub\Testing-system\obj\Debug\Testing_system.InfoForm.resources
+D:\GitHub\Testing-system\obj\Debug\Testing_system.LogForm.resources
+D:\GitHub\Testing-system\obj\Debug\Testing_system.LoggingForm.resources
+D:\GitHub\Testing-system\obj\Debug\Testing_system.TestForm.resources
+D:\GitHub\Testing-system\obj\Debug\Testing_system.MenuForm.resources
+D:\GitHub\Testing-system\obj\Debug\Testing_system.Properties.Resources.resources
+D:\GitHub\Testing-system\obj\Debug\Testing system.csproj.GenerateResource.cache
+D:\GitHub\Testing-system\obj\Debug\Testing system.csproj.CoreCompileInputs.cache
+D:\GitHub\Testing-system\obj\Debug\Testing system.exe
+D:\GitHub\Testing-system\obj\Debug\Testing system.pdb

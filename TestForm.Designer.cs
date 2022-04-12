@@ -118,6 +118,7 @@ namespace Testing_system
 			// 
 			this.taskBox.BackColor = System.Drawing.Color.White;
 			this.taskBox.ErrorImage = global::Testing_system.Properties.Resources.Missing_Image;
+			this.taskBox.Image = global::Testing_system.Properties.Resources.Missing_Image;
 			this.taskBox.Location = new System.Drawing.Point(11, 11);
 			this.taskBox.Name = "taskBox";
 			this.taskBox.Size = new System.Drawing.Size(824, 286);

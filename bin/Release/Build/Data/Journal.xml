@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Journal>
+  <data>
+    <group>СХС-2</group>
+    <name>Петр</name>
+    <surname>Петров</surname>
+    <score>13</score>
+    <mark>2</mark>
+    <date>12.04.2022 23:11:45</date>
+    <time>00:00:49</time>
+  </data>
+  <data>
+    <group>РУСЬ-988</group>
+    <name>Корнеплод</name>
+    <surname>Виктор</surname>
+    <score>0</score>
+    <mark>2</mark>
+    <date>12.04.2022 23:16:32</date>
+    <time>00:00:09</time>
+  </data>
+  <data>
+    <group>ЕНФ-12</group>
+    <name>Карпов</name>
+    <surname>Анатолий</surname>
+    <score>0</score>
+    <mark>2</mark>
+    <date>12.04.2022 23:20:49</date>
+    <time>00:00:19</time>
+  </data>
+  <data>
+    <group>СГ-8</group>
+    <name>Клинских</name>
+    <surname>Юрий</surname>
+    <score>0</score>
+    <mark>2</mark>
+    <date>12.04.2022 23:23:45</date>
+    <time>00:00:07</time>
+  </data>
+</Journal>

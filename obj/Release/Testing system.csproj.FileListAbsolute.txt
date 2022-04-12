@@ -1,0 +1,13 @@
+D:\GitHub\Testing-system\bin\Release\Testing system.exe.config
+D:\GitHub\Testing-system\bin\Release\Testing system.exe
+D:\GitHub\Testing-system\bin\Release\Testing system.pdb
+D:\GitHub\Testing-system\obj\Release\Testing_system.InfoForm.resources
+D:\GitHub\Testing-system\obj\Release\Testing_system.LogForm.resources
+D:\GitHub\Testing-system\obj\Release\Testing_system.LoggingForm.resources
+D:\GitHub\Testing-system\obj\Release\Testing_system.TestForm.resources
+D:\GitHub\Testing-system\obj\Release\Testing_system.MenuForm.resources
+D:\GitHub\Testing-system\obj\Release\Testing_system.Properties.Resources.resources
+D:\GitHub\Testing-system\obj\Release\Testing system.csproj.GenerateResource.cache
+D:\GitHub\Testing-system\obj\Release\Testing system.csproj.CoreCompileInputs.cache
+D:\GitHub\Testing-system\obj\Release\Testing system.exe
+D:\GitHub\Testing-system\obj\Release\Testing system.pdb
