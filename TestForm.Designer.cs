@@ -97,7 +97,7 @@ namespace Testing_system
             "Ответ 2",
             "Ответ 3",
             "Ответ 4"});
-			this.checkBoxList.Location = new System.Drawing.Point(16, 312);
+			this.checkBoxList.Location = new System.Drawing.Point(17, 312);
 			this.checkBoxList.Name = "checkBoxList";
 			this.checkBoxList.Size = new System.Drawing.Size(818, 88);
 			this.checkBoxList.TabIndex = 3;
@@ -108,9 +108,8 @@ namespace Testing_system
 			this.ansBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.ansBox.Location = new System.Drawing.Point(16, 312);
 			this.ansBox.MaxLength = 1024;
-			this.ansBox.Multiline = true;
 			this.ansBox.Name = "ansBox";
-			this.ansBox.Size = new System.Drawing.Size(818, 48);
+			this.ansBox.Size = new System.Drawing.Size(818, 26);
 			this.ansBox.TabIndex = 2;
 			this.ansBox.Text = "Ответ";
 			// 

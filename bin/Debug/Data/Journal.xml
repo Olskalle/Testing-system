@@ -18,4 +18,31 @@
     <date>12.04.2022 23:16:32</date>
     <time>00:00:09</time>
   </data>
+  <data>
+    <group>БОБС-33</group>
+    <name>Стас</name>
+    <surname>Барецкий</surname>
+    <score>5</score>
+    <mark>2</mark>
+    <date>13.04.2022 08:54:37</date>
+    <time>00:00:18</time>
+  </data>
+  <data>
+    <group>ИИ-2</group>
+    <name>Иван</name>
+    <surname>Иванов</surname>
+    <score>0</score>
+    <mark>2</mark>
+    <date>13.04.2022 08:55:51</date>
+    <time>00:00:07</time>
+  </data>
+  <data>
+    <group>ММ-2</group>
+    <name>Иван</name>
+    <surname>Петров</surname>
+    <score>13</score>
+    <mark>2</mark>
+    <date>13.04.2022 08:57:22</date>
+    <time>00:01:57</time>
+  </data>
 </Journal>

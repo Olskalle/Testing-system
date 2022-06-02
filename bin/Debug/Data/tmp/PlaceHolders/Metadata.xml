@@ -2,22 +2,21 @@
 <questions>
 	<section name ="SOLO">
 		<q code="101">
-			<a t="False">5</a>
 			<a t="True">3</a>
+			<a t="False">5</a>
 			<a t="False">2</a>
 			<a t="False">-3</a>
 		</q>
 		<q code="102">
-			
+			<a t="True">-4</a>
 			<a t="False">4</a>
 			<a t="False">1</a>
 			<a t="False">3</a>
-			<a t="True">-4</a>
 		</q>
 		<q code="103">
+			<a t="True">4</a>
 			<a t="False">10</a>
 			<a t="False">0</a>
-			<a t="True">4</a>
 			<a t="False">-3</a>
 		</q>
 		<q code="104">
@@ -27,16 +26,16 @@
 			<a t="False">8</a>
 		</q>
 		<q code="105">
+			<a t="True">7</a>
 			<a t="False">3</a>
 			<a t="False">4</a>
-			<a t="True">7</a>
 			<a t="False">0</a>
 		</q>
 		<q code="106">
+			<a t="True">24</a>
 			<a t="False">10</a>
 			<a t="False">20</a>
 			<a t="False">0,25</a>
-			<a t="True">24</a>
 		</q>
 		<q code="107">
 			<a t="True">40</a>
@@ -45,47 +44,46 @@
 			<a t="False">65</a>
 		</q>
 		<q code="108">
+			<a t="True">48</a>
 			<a t="False">60</a>
 			<a t="False">32</a>
 			<a t="False">18</a>
-			<a t="True">48</a>
 		</q>
 		<q code="109">
-			<a t="False">138</a>
 			<a t="True">119</a>
+			<a t="False">138</a>
 			<a t="False">54</a>
 			<a t="False">90</a>
 		</q>
 		<q code="110">
+			<a t="True">36</a>
 			<a t="False">30</a>
 			<a t="False">50</a>
-			<a t="True">36</a>
 			<a t="False">45</a>
 		</q>
 		<q code="111">
+			<a t="True">49</a>
 			<a t="False">60</a>
 			<a t="False">30</a>
 			<a t="False">45</a>
-			<a t="True">49</a>
 		</q>
 		<q code="112">
-			<a t="False">2</a>
 			<a t="True">3</a>
+			<a t="False">2</a>
 			<a t="False">4</a>
 			<a t="False">9</a>
 		</q>
 		<q code="113">
-			
+			<a t="True">48</a>
 			<a t="False">60</a>
 			<a t="False">42</a>
-			<a t="True">48</a>
 			<a t="False">54</a>
 		</q>
 		<q code="114">
+			<a t="True">7</a>
 			<a t="False">9</a>
 			<a t="False">5</a>
 			<a t="False">6</a>
-			<a t="True">7</a>
 		</q>
 		<q code="115">
 			<a t="True">0,25</a>
@@ -94,15 +92,15 @@
 			<a t="False">0,33</a>
 		</q>
 		<q code="116">
-			<a t="False">4</a>
 			<a t="True">-4</a>
+			<a t="False">4</a>
 			<a t="False">2</a>
 			<a t="False">-2</a>
 		</q>
 		<q code="117">
+			<a t="True">0</a>
 			<a t="False">-6</a>
 			<a t="False">6</a>
-			<a t="True">0</a>
 			<a t="False">4</a>
 		</q>
 		<q code="118">
@@ -112,10 +110,10 @@
 			<a t="False">9</a>
 		</q>
 		<q code="119">
+			<a t="True">4</a>
 			<a t="False">2</a>
 			<a t="False">3</a>
 			<a t="False">1</a>
-			<a t="True">4</a>
 		</q>
 		<q code="120">
 			<a t="True">4</a>
@@ -127,15 +125,15 @@
 	<section name ="MULTI">
 		<q code="201">
 			<a t="True">4</a>
-			<a t="False">2</a>
 			<a t="True">-4</a>
+			<a t="False">2</a>
 			<a t="False">3</a>
 		</q>
 		<q code="202">
-			<a t="False">3</a>
 			<a t="True">1</a>
-			<a t="False">-5</a>
 			<a t="True">0</a>
+			<a t="False">3</a>
+			<a t="False">-5</a>
 		</q>
 		<q code="203">
 			<a t="True">1</a>
@@ -144,26 +142,26 @@
 			<a t="False">4</a>
 		</q>
 		<q code="204">
+			<a t="True">-3</a>
 			<a t="False">3</a>
 			<a t="False">6</a>
-			<a t="True">-3</a>
 			<a t="False">-6</a>
 		</q>
 		<q code="205">
 			<a t="True">-4</a>
-			<a t="False">6</a>
 			<a t="True">-2/3</a>
+			<a t="False">6</a>
 			<a t="False">1/3</a>
 		</q>
 		<q code="206">
+			<a t="True">-2</a>
 			<a t="False">6</a>
 			<a t="False">4</a>
 			<a t="False">0</a>
-			<a t="True">-2</a>
 		</q>
 		<q code="207">
-			<a t="False">0</a>
 			<a t="True">2</a>
+			<a t="False">0</a>
 			<a t="False">3</a>
 			<a t="False">1</a>
 		</q>
@@ -175,14 +173,14 @@
 		</q>
 		<q code="209">
 			<a t="True">a</a>
-			<a t="False">b</a>
 			<a t="True">c</a>
+			<a t="False">b</a>
 			<a t="False">d</a>
 		</q>
 		<q code="210">
 			<a t="True">c</a>
-			<a t="False">a</a>
 			<a t="True">d</a>
+			<a t="False">a</a>
 			<a t="False">b</a>
 		</q>
 	</section>

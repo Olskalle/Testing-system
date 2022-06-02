@@ -129,7 +129,10 @@
   <ItemGroup>
     <Content Include="3151572_math_mathematics_pi_icon.ico" />
     <Content Include="Metadata.xml" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\angry.png" />
     <Content Include="Resources\Missing_Image.png" />
+    <None Include="Resources\windows-xp.jpg" />
     <None Include="Missing_Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
